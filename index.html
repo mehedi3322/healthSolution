@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Nation One Identity</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Reset & Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- Section 1: Header & Hero --- */
+        .top-nav {
+            background-color: #009e60; /* Bright Green */
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo-icon {
+            font-size: 30px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .nav-links div {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .hero-section {
+            background-color: #447a5d; /* Darker Green */
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        /* Animation for the Header Text */
+        .animated-heading {
+            font-size: 55px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 4px 4px rgba(0,0,0,0.3);
+            /* Animation properties */
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1.5s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-section p {
+            font-size: 20px;
+            margin-bottom: 40px;
+        }
+
+        .btn-start {
+            background-color: #00a859;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-start:hover {
+            background-color: #008a49;
+        }
+
+        /* --- Section 2 & 3: Layout Structure for Cards --- */
+        .section-container {
+            padding: 80px 50px;
+            text-align: center;
+        }
+
+        .section-container h2 {
+            font-size: 36px;
+            color: #222;
+            margin-bottom: 40px;
+        }
+
+        .line-divider {
+            width: 80%;
+            height: 1px;
+            background-color: #ddd;
+            margin: -20px auto 40px auto;
+        }
+
+        .cards-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            padding: 40px 20px;
+            border-radius: 5px;
+            width: 300px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .card i {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .card.icon-blue i { color: #0056b3; }
+        .card.icon-red i { color: #d9534f; }
+        .card.icon-teal i { color: #009688; }
+
+        .card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .card p {
+            color: #666;
+            font-size: 15px;
+        }
+
+        /* --- Section 4: Testimonials --- */
+        .testimonials-section {
+            background-color: #3f7b58;
+            padding: 80px 50px;
+            text-align: center;
+            color: white;
+        }
+
+        .testimonials-section h2 {
+            font-size: 36px;
+            margin-bottom: 50px;
+        }
+
+        .testimonial-card {
+            background: white;
+            color: #333;
+            padding: 30px;
+            border-radius: 8px;
+            width: 300px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 15px auto;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: #ccc;
+            overflow: hidden;
+        }
+        
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* --- Section 5: Footer --- */
+        .footer {
+            background-color: #0a192f;
+            color: white;
+            padding: 60px 50px 20px 50px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1.5fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer h4 {
+            font-size: 18px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer ul li {
+            margin-bottom: 15px;
+            color: #b0b8c1;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links-wrapper {
+            display: flex;
+            gap: 40px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .newsletter-form input {
+            padding: 10px 15px;
+            border: none;
+            outline: none;
+            width: 100%;
+            border-radius: 2px 0 0 2px;
+        }
+
+        .newsletter-form button {
+            padding: 10px 20px;
+            background-color: #3b82f6;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 0 2px 2px 0;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #1e2d42;
+            padding-top: 20px;
+            font-size: 13px;
+            color: #b0b8c1;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-icons div {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+        }
+
+        .fb { background-color: #3b5998; }
+        .tw { background-color: #1da1f2; }
+        .gp { background-color: #db4437; }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+            .top-nav { flex-direction: column; gap: 20px; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .animated-heading { font-size: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="top-nav">
+        <div class="logo-container">
+            <i class="fa-solid fa-hand-holding-medical logo-icon"></i>
+            <span>ONE NATION<br><small style="font-size:14px; font-weight:normal;">One IDENTITY</small></span>
+        </div>
+        <div class="nav-links">
+            <div><i class="fa-regular fa-hospital"></i> Hospital</div>
+            <div><i class="fa-solid fa-person"></i> Person</div>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <h1 class="animated-heading">Welcome to the Identity Health Solution</h1>
+        <p>Secure, accessible, and reliable healthcare at your fingertips</p>
+        <button class="btn-start">Get Started</button>
+    </header>
+
+    <section class="section-container">
+        <h2>Our Project Key Features</h2>
+        <div class="cards-wrapper">
+            <div class="card">
+                <div class="icon-blue"><i class="fa-solid fa-user-lock"></i></div>
+                <h3>Secure Data</h3>
+                <p>All your medical records and data are secured with the latest encryption technology.</p>
+            </div>
+            <div class="card">
+                <div class="icon-red"><i class="fa-solid fa-hand-holding-heart"></i></div>
+                <h3>Easy Access</h3>
+                <p>Access your health information from anywhere, anytime with ease.</p>
+            </div>
+            <div class="card">
+                <div class="icon-blue"><i class="fa-solid fa-truck-medical"></i></div>
+                <h3>Emergency Support</h3>
+                <p>Quick emergency access to your medical history for hospitals and caregivers.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-container" style="background-color: white;">
+        <h2>How It's Works</h2>
+        <div class="line-divider"></div>
+        <div class="cards-wrapper">
+            <div class="card">
+                <div class="icon-blue"><i class="fa-solid fa-desktop"></i></div>
+                <h3>Register</h3>
+                <p>Sign up as a patient, doctor, or hospital with simple registration.</p>
+            </div>
+            <div class="card">
+                <div class="icon-teal"><i class="fa-solid fa-file-medical"></i></div>
+                <h3>Upload Documents</h3>
+                <p>Upload your medical documents securely to the platform.</p>
+            </div>
+            <div class="card">
+                <div class="icon-blue"><i class="fa-solid fa-user-check"></i></div>
+                <h3>Verification</h3>
+                <p>Your documents are verified for authenticity before being stored.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section">
+        <h2>What Our Users Say</h2>
+        <div class="cards-wrapper">
+            <div class="testimonial-card">
+                <div class="avatar"><i class="fa-solid fa-user"></i></div>
+                <h3>Ibrahim</h3>
+                <p>"This system has made accessing my medical records so easy. It's fast and secure!"</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="avatar"><i class="fa-solid fa-user-doctor"></i></div>
+                <h3>Dr. Saiful Islam Ratan</h3>
+                <p>"As a doctor, this platform helps me quickly verify patient records and provide better care."</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="avatar"><i class="fa-regular fa-building"></i></div>
+                <h3>City Hospital</h3>
+                <p>"The emergency access feature has been a lifesaver for our patients in critical conditions."</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div>
+                <h4>CONTACT US</h4>
+                <ul>
+                    <li><i class="fa-solid fa-location-dot"></i> Aftabnagar, Dhaka.</li>
+                    <li><i class="fa-solid fa-phone"></i> 01762210398</li>
+                    <li><i class="fa-solid fa-envelope"></i> info.ibhs@gmail.com</li>
+                    <li><i class="fa-solid fa-envelope"></i> info.ibhs@yahoo.com</li>
+                    <li><i class="fa-regular fa-clock"></i> Sat - Fri : 8:00AM - 8:00AM</li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4>RECENT NEWS</h4>
+                <ul>
+                    <li style="color:white; margin-bottom: 5px;">City Hospital News...</li>
+                    <li><i class="fa-regular fa-clock"></i> 12 Jan 2025</li>
+                    <li style="color:white; margin-top: 15px; margin-bottom: 5px;">United Hospital are risky now</li>
+                    <li><i class="fa-regular fa-clock"></i> 20 Feb 2025</li>
+                </ul>
+            </div>
+
+            <div>
+                <h4>QUICK LINK</h4>
+                <div class="footer-links-wrapper">
+                    <ul>
+                        <li>Hospital</li>
+                        <li>Advertise</li>
+                        <li>Patient</li>
+                        <li>Policy</li>
+                        <li>Add Something</li>
+                    </ul>
+                    <ul>
+                        <li>News</li>
+                        <li>Doctor</li>
+                        <li>FAQs</li>
+                        <li>Advisors</li>
+                        <li>Add Something</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div>
+                <h4>NEWSLETTER</h4>
+                <p style="color: #b0b8c1; font-size: 14px;">We send out weekly newsletter featuring our newest articles and some great offers and ideas for consulting services.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Email address">
+                    <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div>
+                <p><u>IBHS</u> is a HealthCare Services.</p>
+                <p>&copy; 2025 Copyright by <u>IdentityBasedHealthSystem</u></p>
+            </div>
+            <div style="text-align:center; opacity: 0.5;">
+                <i class="fa-solid fa-hand-holding-medical"></i> ONE NATION IDENTITY
+            </div>
+            <div class="social-icons">
+                <div class="fb"><i class="fa-brands fa-facebook-f"></i></div>
+                <div class="tw"><i class="fa-brands fa-twitter"></i></div>
+                <div class="gp"><i class="fa-brands fa-google-plus-g"></i></div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
